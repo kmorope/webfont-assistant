@@ -1,0 +1,8 @@
+{
+  "name": "webfont-assistant",
+  "version": "1.0.0",
+  "description": "WebFont Assistant helps you to create custom fonts for your web pages using svg images",
+  "main": "index.js",
+  "author": "Camilo Romero",
+  "license": "MIT"
+}
