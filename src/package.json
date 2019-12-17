@@ -4,5 +4,21 @@
   "description": "WebFont Assistant helps you to create custom fonts for your web pages using svg images",
   "main": "index.js",
   "author": "Camilo Romero",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "enquirer": "^2.3.2",
+    "figlet": "^1.2.4",
+    "loading-cli": "^1.1.0",
+    "underscore": "^1.9.1",
+    "webfont": "^9.0.0",
+    "yargs": "^15.0.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": {
+    "webfont-assistant": "cli.js"
+  }
 }
