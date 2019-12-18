@@ -21,3 +21,30 @@ Created by [kmorope](https://github.com/kmorope), WebFont Assistant is a command
 <br>
 <img src="https://raw.githubusercontent.com/kmorope/webfont-assistant/master/media/welcome.png" alt="WebFont Assistant Welcome Screen" width="750"><br>
 </p>
+
+## ❯ Getting started
+
+Get started with webfont-assistant, the easiest way to add custom webfonts to any web project without complicated configs.
+
+* [Install](#-install)
+* [Usage](#-usage)
+
+## ❯ Install
+
+Install with [npm](https://www.npmjs.com/):
+
+```sh
+$ npm install -g webfont-assistant
+```
+Install with [yarn](https://yarnpkg.com/en/):
+
+```sh
+$ yarn add global webfont-assistant
+```
+_(Requires Node.js 8.6 or higher.)_
+
+<br>
+
+## ❯ Usage
+
+*webfont-assistant* 
