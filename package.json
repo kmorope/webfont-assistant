@@ -1,12 +1,26 @@
 {
   "name": "webfont-assistant",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "repository": "https://github.com/kmorope/webfont-assistant",
   "description": "WebFont Assistant helps you to create custom fonts for your web pages using svg images",
+  "keywords": [
+    "webfonts",
+    "svg",
+    "ttf",
+    "fonts",
+    "assistant"
+  ],
   "main": "index.js",
   "author": "Camilo Romero",
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "scripts": {
+    "start": "./src/cli.js"
+  },
+  "bin": {
+    "webfont-assistant": "./src/cli.js"
+  },
+  "dependencies": {
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
     "enquirer": "^2.3.2",
@@ -15,11 +29,5 @@
     "underscore": "^1.9.1",
     "webfont": "^9.0.0",
     "yargs": "^15.0.2"
-  },
-  "scripts": {
-    "start": "./src/cli.js"
-  },
-  "bin": {
-    "webfont-assistant": "./src/cli.js"
   }
 }
