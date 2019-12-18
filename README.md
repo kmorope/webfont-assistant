@@ -43,8 +43,7 @@ $ yarn add global webfont-assistant
 ```
 _(Requires Node.js 8.6 or higher.)_
 
-<br>
 
 ## ❯ Usage
 
-*webfont-assistant* 
+In order to use webfont-assistant you need to prepare the .svg images that goin to be used as custom web fonts.
