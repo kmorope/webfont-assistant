@@ -39,7 +39,7 @@ $ npm install -g webfont-assistant
 Install with [yarn](https://yarnpkg.com/en/):
 
 ```sh
-$ yarn add global webfont-assistant
+$ yarn global add webfont-assistant
 ```
 _(Requires Node.js 8.6 or higher.)_
 
