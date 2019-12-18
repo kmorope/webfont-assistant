@@ -8,22 +8,21 @@ let conf = {};
 module.exports = {
   createConfig: config => {
     conf = {
-      files: path.resolve(__dirname, `${config.glyphs}/*.svg`),
+      files: `${config.glyphs}/*.svg`,
       fontName: config.prefix,
-      dest: path.resolve(__dirname, config.output),
-      template: config.isCustomTemplate
-        ? path.resolve(__dirname, config.template)
-        : config.styleType,
-      templateFontPath: path.resolve(__dirname, config.output),
+      dest: config.output,
+      template: config.isCustomTemplate ? config.template : config.styleType,
+      templateFontPath: config.output,
       fixedWidth: true,
       fontHeight: 1000,
       formats: config.formats,
-      original: config
+      original: config,
+      verbose: true
     };
     module.exports.saveConfig(conf);
     return conf;
   },
-  createFont: (config,callback) => {
+  createFont: (config, callback) => {
     const load = loading({
       text: "Creating WebFont",
       color: "white",
@@ -33,20 +32,14 @@ module.exports = {
       .then(result => {
         config.formats.forEach(format => {
           let writeFont = fs.createWriteStream(
-            path.resolve(
-              __dirname,
-              `${config.original.output}/${config.original.name}.${format}`
-            )
+            `${config.original.output}/${config.original.name}.${format}`
           );
           writeFont.write(result[format]);
           writeFont.end();
         });
 
         let writeStyle = fs.createWriteStream(
-          path.resolve(
-            __dirname,
-            `${config.original.output}/${config.original.name}.${config.original.styleType}`
-          )
+          `${config.original.output}/${config.original.name}.${config.original.styleType}`
         );
         writeStyle.write(result.template);
         writeStyle.end();
@@ -57,13 +50,21 @@ module.exports = {
       })
       .catch(err => {
         load.stop();
-        console.error(error);
+        console.log(error);
       });
   },
-  saveConfig: (config)=>{
+  saveConfig: config => {
     let json = JSON.stringify(config);
-    fs.writeFile(path.resolve(__dirname,`${config.original.output}/${config.original.name}.was`), json, 'utf8', ()=>{
-      console.log("Configuration file created");
-    });
+    fs.writeFile(
+      `${config.original.output}/${config.original.name}.was`,
+      json,
+      "utf8",
+      err => {
+        if (err) {
+          return console.err(err);
+        }
+        console.log("Configuration file created");
+      }
+    );
   }
 };
