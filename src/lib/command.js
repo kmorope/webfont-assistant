@@ -24,11 +24,11 @@ module.exports = {
       choices: [
         { name: "name", message: "Font Name", initial: "MyAwesomeFont" },
         { name: "prefix", message: "Icons prefix", initial: "my-icon" },
-        { name: "output", message: "Output Path", initial: "../assets/fonts/" },
+        { name: "output", message: "Output Path", initial: "assets/fonts/" },
         {
           name: "glyphs",
           message: "Glyph´s Path",
-          initial: "../assets/images/svg"
+          initial: "assets/images/svg"
         }
       ]
     });

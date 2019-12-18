@@ -1,6 +1,6 @@
 const webfont = require("webfont").default;
-const path = require("path");
 const fs = require("fs");
+const chalk = require("chalk");
 const _ = require("underscore");
 const loading = require("loading-cli");
 let conf = {};
@@ -9,22 +9,23 @@ module.exports = {
   createConfig: config => {
     conf = {
       files: `${config.glyphs}/*.svg`,
+      name:config.name,
       fontName: config.prefix,
+      fontId:config.prefix,
       dest: config.output,
       template: config.isCustomTemplate ? config.template : config.styleType,
-      templateFontPath: config.output,
+      templateFontName: config.name,
       fixedWidth: true,
       fontHeight: 1000,
       formats: config.formats,
-      original: config,
-      verbose: true
+      styleType:config.styleType
     };
     module.exports.saveConfig(conf);
     return conf;
   },
   createFont: (config, callback) => {
     const load = loading({
-      text: "Creating WebFont",
+      text: chalk.green.bold("Creating WebFont"),
       color: "white",
       frames: ["◰", "◳", "◲", "◱"]
     }).start();
@@ -32,14 +33,14 @@ module.exports = {
       .then(result => {
         config.formats.forEach(format => {
           let writeFont = fs.createWriteStream(
-            `${config.original.output}/${config.original.name}.${format}`
+            `${config.dest}/${config.name}.${format}`
           );
           writeFont.write(result[format]);
           writeFont.end();
         });
 
         let writeStyle = fs.createWriteStream(
-          `${config.original.output}/${config.original.name}.${config.original.styleType}`
+          `${config.dest}/${config.name}.${config.styleType}`
         );
         writeStyle.write(result.template);
         writeStyle.end();
@@ -56,12 +57,12 @@ module.exports = {
   saveConfig: config => {
     let json = JSON.stringify(config);
     fs.writeFile(
-      `${config.original.output}/${config.original.name}.was`,
+      `${config.dest}/${config.name}.was`,
       json,
       "utf8",
       err => {
         if (err) {
-          return console.err(err);
+          return console.error(err);
         }
         console.log("Configuration file created");
       }

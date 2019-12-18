@@ -2,19 +2,17 @@
 
 const clear = require("clear");
 const chalk = require("chalk");
-const figlet = require("figlet");
 const cmd = require("./lib/command");
 const wf = require("./lib/webfonts");
 const _ = require("underscore");
-const path =  require("path");
 const fs =  require("fs");
 
 module.exports = {
   run: async () => {
     clear();
     console.log(
-      chalk.yellow(
-        figlet.textSync("WebFont Assistant 🤖", { horizontalLayout: "full" })
+      chalk.yellow.bold(
+        "WebFont Assistant 🤖"
       )
     );
     console.log(
@@ -79,7 +77,7 @@ module.exports = {
   },
   runExistent: async (configPath) => {
     clear();
-    fs.readFile(path.resolve(__dirname,configPath),"utf8",(err,data)=>{
+    fs.readFile(configPath,"utf8",(err,data)=>{
       if (err){
         console.log(err);
       }else{
@@ -87,7 +85,7 @@ module.exports = {
         wf.createFont(config, () => {
           clear();
           console.log(
-            chalk.white.bold(`WebFont ${config.original.name} created from config successfully ✨🎉`)
+            chalk.white.bold(`WebFont ${config.fontName} created from config successfully ✨🎉`)
           );
         });
       }
