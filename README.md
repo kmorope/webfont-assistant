@@ -1,7 +1,9 @@
 <h1 align="center">WebFont Assistant</h1>
 
 <p align="center">
-
+<a href="https://npmjs.org/package/webfont-assistant">
+<img src="https://img.shields.io/npm/v/webfont-assistant" alt="version">
+</a>
 </p>
 
 <br>
