@@ -1,6 +1,5 @@
 "use strict";
 
-const path = require("path");
 const { Form, Input, Confirm, MultiSelect, Select } = require("enquirer");
 let config = {};
 
@@ -24,7 +23,7 @@ module.exports = {
       choices: [
         { name: "name", message: "Font Name", initial: "MyAwesomeFont" },
         { name: "prefix", message: "Icons prefix", initial: "my-icon" },
-        { name: "output", message: "Output Path", initial: "assets/fonts/" },
+        { name: "output", message: "Output Path", initial: "assets/fonts" },
         {
           name: "glyphs",
           message: "Glyph´s Path",
@@ -86,9 +85,7 @@ module.exports = {
       message: "Which font types you need?",
       limit: 6,
       choices: [
-        { name: "svg", value: "svg" },
         { name: "ttf", value: "ttf" },
-        { name: "eot", value: "eot" },
         { name: "woff", value: "woff" },
         { name: "woff2", value: "woff2" }
       ]

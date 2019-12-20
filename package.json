@@ -1,6 +1,6 @@
 {
   "name": "webfont-assistant",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "repository": "https://github.com/kmorope/webfont-assistant",
   "description": "WebFont Assistant helps you to create custom fonts for your web pages using svg images",
   "keywords": [
