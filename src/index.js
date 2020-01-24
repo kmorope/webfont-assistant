@@ -82,12 +82,15 @@ module.exports = {
         console.log(err);
       }else{
         let config = JSON.parse(data);
-        wf.createFont(config, () => {
-          clear();
-          console.log(
-            chalk.white.bold(`WebFont ${config.fontName} created from config successfully ✨🎉`)
-          );
+        config.forEach(configElement => {
+          wf.createFont(configElement, () => {
+            clear();
+            console.log(
+              chalk.white.bold(`WebFont ${configElement.fontName} created from config successfully ✨🎉`)
+            );
+          });
         });
+        
       }
     })
   }
